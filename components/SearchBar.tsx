@@ -1,17 +1,17 @@
 import { icons } from "@/constants/icons";
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import { Image, TextInput, View } from "react-native";
 
 const SearchBar = ({
   onPress,
   placeholder,
-  query,
-  setQuery,
+  value,
+  onChangeText,
 }: {
   onPress?: () => void;
   placeholder: string;
-  query: string;
-  setQuery: Dispatch<SetStateAction<string>>;
+  value?: string;
+  onChangeText?: (text: string) => void;
 }) => {
   return (
     <View className="flex-row items-center bg-dark-200 rounded-full px-5 py-4">
@@ -24,8 +24,8 @@ const SearchBar = ({
       <TextInput
         onPress={onPress}
         placeholder={placeholder}
-        value={query}
-        onChangeText={(e) => setQuery(e)}
+        value={value}
+        onChangeText={onChangeText}
         placeholderTextColor="#ab8bff"
         className="flex-1 ml-2 text-white"
       />
